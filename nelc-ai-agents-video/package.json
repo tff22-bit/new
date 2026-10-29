@@ -1,0 +1,28 @@
+{
+  "name": "nelc-ai-agents-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "فيديو تعليمي متحرك: معايير وكلاء الذكاء الاصطناعي في التعليم والتدريب",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "timing": "node scripts/build-timing.mjs",
+    "render": "node scripts/check-audio.mjs && remotion render src/index.ts AIAgentsStandards out/ai-agents-standards.mp4 --codec=h264 --audio-codec=aac --browser-executable=/opt/pw-browsers/chromium",
+    "still": "remotion still src/index.ts AIAgentsStandards --browser-executable=/opt/pw-browsers/chromium",
+    "typecheck": "tsc --noEmit",
+    "docs": "node scripts/build-docs.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-arabic": "^5.1.1",
+    "@remotion/bundler": "^4.0.300",
+    "@remotion/cli": "^4.0.300",
+    "@remotion/media-utils": "^4.0.300",
+    "@remotion/renderer": "^4.0.300",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.300"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  }
+}
