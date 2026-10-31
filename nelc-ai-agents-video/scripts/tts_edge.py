@@ -6,7 +6,7 @@
 ثم يستخرج build-timing.mjs بداية كل مقطع (beat) من توقيت أول كلماته.
 
 الاستخدام:
-  python scripts/tts_edge.py [--voice ar-SA-HamedNeural] [--rate=-5%] [--only s07] [--force]
+  python scripts/tts_edge.py [--voice ar-SA-HamedNeural] [--rate=+0%] [--only s07] [--force]
 يمر الاتصال عبر الوسيط المعرّف في HTTPS_PROXY إن وُجد.
 """
 import argparse
@@ -48,7 +48,7 @@ async def synth(text: str, voice: str, rate: str, out: Path, words_out: Path) ->
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--voice", default="ar-SA-HamedNeural")
-    ap.add_argument("--rate", default="-5%")
+    ap.add_argument("--rate", default="+0%")
     ap.add_argument("--only")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()

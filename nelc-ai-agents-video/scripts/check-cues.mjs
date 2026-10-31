@@ -8,6 +8,7 @@ for (const file of readdirSync(path.join(root, "src/scenes"))) {
   const m = file.match(/^S(\d\d)/);
   if (!m) continue;
   const scene = narr.scenes.find((s) => s.id === `s${m[1]}`);
+  if (!scene) continue; // مشهد غير مستخدم في النسخة الحالية
   const src = readFileSync(path.join(root, "src/scenes", file), "utf8");
   for (const [, n, phrase] of src.matchAll(/c\((\d+), "([^"]+)"\)/g)) {
     const beat = scene.beats[Number(n) - 1];
