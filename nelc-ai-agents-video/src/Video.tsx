@@ -56,5 +56,9 @@ export const Video: React.FC = () => (
       <Sweep key={`sw-${s.id}`} at={s.from - 4} />
     ))}
     <Progress />
+    {/* تذييل ثابت طوال الفيديو */}
+    <div style={{ position: "absolute", left: 72, bottom: 32, fontFamily: FONT, fontSize: 22, fontWeight: 600, color: C.muted }}>
+      تنفيذ: تهاني الشريف
+    </div>
   </AbsoluteFill>
 );

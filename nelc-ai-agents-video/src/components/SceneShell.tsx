@@ -5,19 +5,6 @@ import { C, FONT } from "../theme";
 import { easeOut, prog } from "./anim";
 import { LEAD } from "../timeline";
 
-// يختصر أرقام الصفحات المتتالية إلى نطاقات: 37–45
-const pageRanges = (pages: number[]) => {
-  const sorted = [...new Set(pages)].sort((a, b) => a - b);
-  const out: string[] = [];
-  for (let i = 0; i < sorted.length; i++) {
-    let j = i;
-    while (j + 1 < sorted.length && sorted[j + 1] === sorted[j] + 1) j++;
-    out.push(j > i + 1 ? `${sorted[i]}–${sorted[j]}` : j === i + 1 ? `${sorted[i]}، ${sorted[j]}` : `${sorted[i]}`);
-    i = j;
-  }
-  return out.join("، ");
-};
-
 const DIM_SCENES = ["s12", "s13", "s14", "s15", "s16", "s17", "s18"];
 
 // خريطة مصغرة للأبعاد السبعة تُظهر موقع المشاهد الحالي من الإطار
@@ -96,9 +83,6 @@ export const SceneShell: React.FC<{
         </div>
       )}
       {dimIdx >= 0 && <DimensionMap active={dimIdx} />}
-      <div style={{ position: "absolute", left: 72, bottom: 34, fontSize: 19, color: C.faint, fontWeight: 500, opacity: prog(f, 20, 20) }}>
-        المصدر: الوثيقة، ص {pageRanges(scene.pages)}
-      </div>
       {scene.audio && (
         <Sequence from={LEAD} layout="none">
           <Audio src={staticFile(scene.audio)} />
