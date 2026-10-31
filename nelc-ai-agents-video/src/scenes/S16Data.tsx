@@ -41,7 +41,7 @@ const PurposeFilter: React.FC = () => {
         <Text size={25} weight={700} style={{ width: 150, textAlign: "center", marginTop: 10 }}>البيانات</Text>
       </Reveal>
       <Svg>
-        <path d="M 1180 380 L 1300 380 L 1260 520 L 1260 640 L 1220 660 L 1220 520 Z" fill="#EEFAFB" stroke={C.teal} strokeWidth={3} opacity={prog(f, c(1, "لغرض"), 20)} transform="translate(-20 0)" />
+        <path d="M 1180 380 L 1300 380 L 1260 520 L 1260 640 L 1220 660 L 1220 520 Z" fill="#F3EEFF" stroke={C.teal} strokeWidth={3} opacity={prog(f, c(1, "لغرض"), 20)} transform="translate(-20 0)" />
         {f > start &&
           tokens.map((_, i) => {
             const t = ((f - start) / 90 + i / tokens.length) % 1;
@@ -168,7 +168,7 @@ const Memory: React.FC = () => {
               { k: "مدته", cue: "ومدته" },
             ].map((row, k) => (
               <Reveal key={k} at={c(3, row.cue)} kind="right" style={{ position: "relative" }}>
-                <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 12, background: "#F4F8FA", fontFamily: FONT, fontSize: 23, fontWeight: 600, color: C.charcoal }}>{row.k}</div>
+                <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 12, background: "#F6F2FE", fontFamily: FONT, fontSize: 23, fontWeight: 600, color: C.charcoal }}>{row.k}</div>
               </Reveal>
             ))}
             <Reveal at={c(3, "تصحيحه")} kind="fade" style={{ position: "relative" }}>

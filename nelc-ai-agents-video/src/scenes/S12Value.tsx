@@ -90,7 +90,7 @@ const ContextLens: React.FC = () => {
       <Svg>
         {rings.map((r, i) => {
           const p = prog(f, c(3, r.cue), 24, easeInOut);
-          return <circle key={i} cx={cx} cy={cy} r={r.r * p} fill={i === 0 ? "#EEFAFB" : "none"} stroke={[C.turquoise, C.blue, C.teal][i]} strokeWidth={3} opacity={p} />;
+          return <circle key={i} cx={cx} cy={cy} r={r.r * p} fill={i === 0 ? "#F3EEFF" : "none"} stroke={[C.turquoise, C.blue, C.teal][i]} strokeWidth={3} opacity={p} />;
         })}
       </Svg>
       {rings.map((r, i) => (
@@ -153,7 +153,7 @@ const RiskBalance: React.FC = () => {
           <g key={i}>
             <line x1={p.x} y1={p.y} x2={p.x - 90} y2={p.y + 140} stroke={C.lineStrong} strokeWidth={2.5} />
             <line x1={p.x} y1={p.y} x2={p.x + 90} y2={p.y + 140} stroke={C.lineStrong} strokeWidth={2.5} />
-            <path d={`M ${p.x - 120} ${p.y + 140} L ${p.x + 120} ${p.y + 140} Q ${p.x} ${p.y + 200} ${p.x - 120} ${p.y + 140}`} fill={i === 0 ? (exceed > 0.3 ? C.alertLight : "#EEFAFB") : "#EEFAFB"} stroke={i === 0 && exceed > 0.3 ? C.alert : C.turquoise} strokeWidth={3} />
+            <path d={`M ${p.x - 120} ${p.y + 140} L ${p.x + 120} ${p.y + 140} Q ${p.x} ${p.y + 200} ${p.x - 120} ${p.y + 140}`} fill={i === 0 ? (exceed > 0.3 ? C.alertLight : "#F3EEFF") : "#F3EEFF"} stroke={i === 0 && exceed > 0.3 ? C.alert : C.turquoise} strokeWidth={3} />
           </g>
         ))}
       </Svg>

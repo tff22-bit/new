@@ -1,4 +1,12 @@
 import type React from "react";
+import { Q01Hook } from "./short/Q01Hook";
+import { Q02Question } from "./short/Q02Question";
+import { Q03ToolAgent } from "./short/Q03ToolAgent";
+import { Q04Loop } from "./short/Q04Loop";
+import { Q05Decisions } from "./short/Q05Decisions";
+import { Q06Protect } from "./short/Q06Protect";
+import { Q07Framework } from "./short/Q07Framework";
+import { Q08Closing } from "./short/Q08Closing";
 import { S01Opening } from "./S01Opening";
 import { S02Purpose } from "./S02Purpose";
 import { S03Scope } from "./S03Scope";
@@ -45,4 +53,12 @@ export const SCENES: Record<string, React.FC> = {
   s20: S20Apply,
   s21: S21Summary,
   s22: S22Closing,
+  q01: Q01Hook,
+  q02: Q02Question,
+  q03: Q03ToolAgent,
+  q04: Q04Loop,
+  q05: Q05Decisions,
+  q06: Q06Protect,
+  q07: Q07Framework,
+  q08: Q08Closing,
 };

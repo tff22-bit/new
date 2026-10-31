@@ -116,7 +116,7 @@ const WhatHow: React.FC<{ at: number; cHow: number }> = ({ at, cHow }) => {
         </Card>
       </Reveal>
       <Reveal at={at + 6} kind="scale" style={{ left: goal.x - 60, top: goal.y - 60 }}>
-        <div style={{ width: 120, height: 120, borderRadius: "50%", background: C.teal, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 0 14px rgba(13,92,104,0.12)" }}>
+        <div style={{ width: 120, height: 120, borderRadius: "50%", background: C.teal, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 0 14px rgba(59,30,122,0.12)" }}>
           <Icon name="flag" size={58} color="#fff" />
         </div>
       </Reveal>

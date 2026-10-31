@@ -9,7 +9,7 @@ export const Background: React.FC = () => {
   const bx = Math.sin(t / 9) * 60;
   const by = Math.cos(t / 11) * 40;
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(160deg, ${C.bg} 0%, #F7FAFB 55%, ${C.bg2} 100%)` }}>
+    <AbsoluteFill style={{ background: `linear-gradient(160deg, ${C.bg} 0%, #FAF8FF 55%, ${C.bg2} 100%)` }}>
       <div
         style={{
           position: "absolute",
@@ -18,7 +18,7 @@ export const Background: React.FC = () => {
           borderRadius: "50%",
           right: -250 + bx,
           top: -350 + by,
-          background: `radial-gradient(circle, ${C.cyanLight} 0%, rgba(214,244,247,0) 70%)`,
+          background: `radial-gradient(circle, ${C.cyanLight} 0%, rgba(236,229,254,0) 70%)`,
           opacity: 0.8,
         }}
       />
@@ -30,7 +30,7 @@ export const Background: React.FC = () => {
           borderRadius: "50%",
           left: -300 - bx,
           bottom: -380 - by,
-          background: `radial-gradient(circle, ${C.blueLight} 0%, rgba(220,235,250,0) 70%)`,
+          background: `radial-gradient(circle, ${C.blueLight} 0%, rgba(225,236,253,0) 70%)`,
           opacity: 0.7,
         }}
       />

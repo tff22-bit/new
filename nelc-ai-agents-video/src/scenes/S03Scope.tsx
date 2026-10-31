@@ -128,7 +128,7 @@ const Practitioner: React.FC<{ at: number; enterAt: number; labelAt: number }> =
   return (
     <>
       <Svg>
-        <rect x={420} y={280} width={800} height={560} rx={40} fill={lbl > 0 ? `rgba(34,179,191,${0.07 * lbl})` : "none"} stroke={C.teal} strokeWidth={3} strokeDasharray="14 10" opacity={prog(f, at, 20)} />
+        <rect x={420} y={280} width={800} height={560} rx={40} fill={lbl > 0 ? `rgba(139,92,246,${0.07 * lbl})` : "none"} stroke={C.teal} strokeWidth={3} strokeDasharray="14 10" opacity={prog(f, at, 20)} />
       </Svg>
       <Reveal at={at + 4} kind="fade" style={{ left: 470, top: 310 }}>
         <Chip icon="building" label="الجهة" size={28} />

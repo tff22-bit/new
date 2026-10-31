@@ -91,11 +91,11 @@ const Disclosure: React.FC = () => {
           <div style={{ height: 1, background: C.line, margin: "22px 0" }} />
           <Reveal at={c(2, "ويُميَّز")} kind="up" style={{ position: "relative" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#F4F8FA", borderRadius: 14, padding: "14px 18px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#F6F2FE", borderRadius: 14, padding: "14px 18px" }}>
                 <Text size={25} weight={600}>توصية بنشاط إضافي</Text>
                 <Chip icon="sparkle" label="أنتجه الوكيل" size={20} />
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#F4F8FA", borderRadius: 14, padding: "14px 18px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#F6F2FE", borderRadius: 14, padding: "14px 18px" }}>
                 <Text size={25} weight={600}>خطة الوحدة المعتمدة</Text>
                 <Chip icon="teacher" label="اعتماد بشري" size={20} color={C.blue} />
               </div>
@@ -120,7 +120,7 @@ const Disclosure: React.FC = () => {
       </div>
       <Reveal at={c(2, "دون اشتراط")} kind="up" style={{ left: 260, top: 560, width: 640 }}>
         <Card style={{ width: 640, padding: "24px 30px", display: "flex", gap: 20, alignItems: "center", border: `2px dashed ${C.lineStrong}` }}>
-          <IconBadge name="lock" size={66} bg="#EEF2F4" color={C.muted} />
+          <IconBadge name="lock" size={66} bg="#F1EEF7" color={C.muted} />
           <div>
             <Text size={25} weight={700} color={C.muted}>خطوات الاستدلال الداخلية للنموذج</Text>
             <Text size={21} color={C.faint}>لا يُشترط كشفها</Text>

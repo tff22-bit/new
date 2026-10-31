@@ -15,7 +15,7 @@ const comp = await selectComposition({ serveUrl, id: "AIAgentsStandards", puppet
 
 // مدد المشاهد محسوبة مسبقًا في timing.json (المنطق نفسه في src/timeline.ts)
 const timing = JSON.parse(readFileSync(path.join(root, "src/data/timing.json"), "utf8"));
-const OVERLAP = 18;
+const OVERLAP = timing.overlap;
 let cursor = 0;
 const scenes = timing.scenes.map((t) => {
   const sc = { id: t.id, from: cursor, dur: t.durFrames };

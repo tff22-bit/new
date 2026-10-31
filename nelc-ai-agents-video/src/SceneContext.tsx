@@ -15,9 +15,14 @@ export const useScene = () => {
 
 // موضع عبارة داخل مقطع السرد بالإطارات.
 // إن توفرت علامات الكلمات من مزوّد الصوت تُستخدم، وإلا يُقدَّر الموضع بنسبة الحروف.
+// التشكيل في نص السرد لضبط النطق فقط؛ المطابقة تتم على النص المجرد منه
+const DIAC = /[\u064B-\u0652\u0670\u0640]/g;
+const plain = (s: string) => s.replace(DIAC, "");
+
 const cueInBeat = (beat: BeatT, phrase?: string) => {
   if (!phrase) return beat.start;
-  const idx = beat.text.indexOf(phrase);
+  const text = plain(beat.text);
+  const idx = text.indexOf(plain(phrase));
   if (idx < 0) {
     console.warn(`cue not found in ${beat.id}: ${phrase}`);
     return beat.start;
@@ -27,7 +32,7 @@ const cueInBeat = (beat: BeatT, phrase?: string) => {
     for (const m of beat.marks) if (m.c <= idx) best = m;
     return beat.start + Math.round(best.t * 30);
   }
-  return beat.start + Math.round((idx / beat.text.length) * beat.dur);
+  return beat.start + Math.round((idx / text.length) * beat.dur);
 };
 
 export const useCues = () => {

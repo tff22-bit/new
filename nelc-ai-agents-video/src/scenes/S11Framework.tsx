@@ -37,7 +37,7 @@ export const S11Framework: React.FC = () => {
         })}
       </Svg>
       <Reveal at={c(1, "يتوسطها")} kind="scale" style={{ left: cx - 140 * s, top: cy - 140 * s }}>
-        <div style={{ width: 280 * s, height: 280 * s, borderRadius: "50%", background: "#EEFAFB", border: `2px solid ${C.cyanSoft}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+        <div style={{ width: 280 * s, height: 280 * s, borderRadius: "50%", background: "#F3EEFF", border: `2px solid ${C.cyanSoft}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
           <Text size={34 * s} weight={700} color={C.teal}>استخدامٌ مسؤول</Text>
           <Text size={24 * s} color={C.muted}>وقيمة قابلة للتحقق</Text>
         </div>
@@ -77,7 +77,7 @@ export const S11Framework: React.FC = () => {
           </div>
           {PARTS.map((p, k) => (
             <Reveal key={k} at={c(3, p.cue)} kind="right" style={{ position: "relative" }}>
-              <div style={{ display: "flex", gap: 16, alignItems: "center", padding: "12px 16px", marginTop: 10, borderRadius: 14, background: k === 4 ? C.okLight : "#F4F8FA" }}>
+              <div style={{ display: "flex", gap: 16, alignItems: "center", padding: "12px 16px", marginTop: 10, borderRadius: 14, background: k === 4 ? C.okLight : "#F6F2FE" }}>
                 <Icon name={p.icon} size={34} color={C.turquoiseDark} />
                 <Text size={27} weight={600}>{p.label}</Text>
               </div>

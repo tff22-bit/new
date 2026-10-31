@@ -42,7 +42,7 @@ const Delegation: React.FC = () => {
       </Reveal>
       <Svg>
         <Conn d="M 1460 500 L 1340 500" at={frameAt} dur={14} color={C.blue} arrow={{ x: 1340, y: 500, angle: 180 }} />
-        <rect x={300} y={270} width={1020} height={560} rx={44} fill="rgba(34,179,191,0.04)" stroke={C.teal} strokeWidth={3} strokeDasharray="16 12" pathLength={1} opacity={prog(f, frameAt, 20)} />
+        <rect x={300} y={270} width={1020} height={560} rx={44} fill="rgba(139,92,246,0.04)" stroke={C.teal} strokeWidth={3} strokeDasharray="16 12" pathLength={1} opacity={prog(f, frameAt, 20)} />
       </Svg>
       <Reveal at={frameAt + 6} kind="fade" style={{ left: 340, top: 230 }}>
         <Chip icon="lock" label="التفويض = حدود العمل" size={28} color="#fff" bg={C.teal} />
@@ -145,7 +145,7 @@ const PractitionerEntity: React.FC = () => {
   return (
     <>
       <Svg>
-        <rect x={260} y={250} width={1400} height={640} rx={44} fill="rgba(13,92,104,0.03)" stroke={C.teal} strokeWidth={3} opacity={prog(f, ent, 24)} />
+        <rect x={260} y={250} width={1400} height={640} rx={44} fill="rgba(59,30,122,0.03)" stroke={C.teal} strokeWidth={3} opacity={prog(f, ent, 24)} />
       </Svg>
       <Reveal at={ent} kind="fade" style={{ left: 300, top: 280 }}>
         <Chip icon="building" label="الجهة: تستخدم الوكلاء أو تتيحها" size={28} color="#fff" bg={C.teal} />

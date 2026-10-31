@@ -37,7 +37,7 @@ const Safety: React.FC = () => {
   return (
     <>
       <Svg>
-        <path d={`M 560 820 A 340 340 0 0 1 1240 820`} fill="rgba(34,179,191,0.06)" stroke={C.turquoise} strokeWidth={4} pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - dome} />
+        <path d={`M 560 820 A 340 340 0 0 1 1240 820`} fill="rgba(139,92,246,0.06)" stroke={C.turquoise} strokeWidth={4} pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - dome} />
         <line x1={520} y1={820} x2={1280} y2={820} stroke={C.lineStrong} strokeWidth={3} opacity={dome} />
         {specs.map((_, i) => (
           <Conn key={i} d={`M 1000 640 C 1150 640 1250 ${360 + i * 180} 1400 ${360 + i * 180}`} at={ref + i * 8} dur={20} color={C.blue} dashed arrow={{ x: 1400, y: 360 + i * 180, angle: 0 }} />

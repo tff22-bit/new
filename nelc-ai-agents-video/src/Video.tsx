@@ -28,6 +28,19 @@ const Progress: React.FC = () => {
   );
 };
 
+// انتقال سريع بين المشاهد: شريط بنفسجي مائل يعبر الشاشة من اليمين إلى اليسار
+const Sweep: React.FC<{ at: number }> = ({ at }) => {
+  const f = useCurrentFrame();
+  const t = (f - at) / 18;
+  if (t < 0 || t > 1) return null;
+  const x = 2300 - t * 3000;
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      <div style={{ position: "absolute", top: -200, left: x, width: 520, height: 1480, transform: "skewX(-18deg)", background: `linear-gradient(90deg, ${C.cyanSoft}00, ${C.cyanSoft}cc 40%, ${C.turquoise}aa 60%, ${C.cyanSoft}00)` }} />
+    </AbsoluteFill>
+  );
+};
+
 export const Video: React.FC = () => (
   <AbsoluteFill style={{ fontFamily: FONT, direction: "rtl" }}>
     <Background />
@@ -39,6 +52,9 @@ export const Video: React.FC = () => (
         </Sequence>
       );
     })}
+    {TIMELINE.scenes.slice(1).map((s) => (
+      <Sweep key={`sw-${s.id}`} at={s.from - 4} />
+    ))}
     <Progress />
   </AbsoluteFill>
 );

@@ -41,7 +41,7 @@ const DelegationBox: React.FC = () => {
       </Reveal>
       <Svg>
         <Conn d="M 1540 360 L 1290 360" at={c(1, "صادرة") + 8} dur={16} color={C.blue} arrow={{ x: 1290, y: 360, angle: 180 }} />
-        <rect x={400} y={260} width={860} height={620} rx={44} fill="rgba(34,179,191,0.05)" stroke={C.teal} strokeWidth={4} opacity={box} />
+        <rect x={400} y={260} width={860} height={620} rx={44} fill="rgba(139,92,246,0.05)" stroke={C.teal} strokeWidth={4} opacity={box} />
         <Conn d="M 790 650 L 610 710" at={c(2, "أدوات")} dur={16} color={C.turquoise} arrow={{ x: 610, y: 710, angle: 162 }} />
         <Conn d="M 880 650 L 950 730" at={c(2, "وكلاء آخرين")} dur={16} color={C.turquoise} arrow={{ x: 950, y: 730, angle: 49 }} />
       </Svg>

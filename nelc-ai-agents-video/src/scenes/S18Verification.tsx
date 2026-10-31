@@ -70,7 +70,7 @@ const Before: React.FC = () => {
       </Reveal>
       <Reveal at={c(2, "ويُميَّز")} kind="left" style={{ left: 260, top: PANEL_TOP, width: 760 }}>
         <Card style={{ width: 760, height: 330, padding: 28, display: "flex", gap: 26, alignItems: "stretch" }}>
-          <div style={{ flex: 1, background: "#F4F8FA", borderRadius: 18, padding: 20, textAlign: "center" }}>
+          <div style={{ flex: 1, background: "#F6F2FE", borderRadius: 18, padding: 20, textAlign: "center" }}>
             <Icon name="megaphone" size={56} color={C.muted} />
             <Text size={25} weight={700} style={{ marginTop: 8 }}>ما يعلنه المورّد</Text>
             <Text size={21} color={C.muted}>منافع مُعلنة</Text>

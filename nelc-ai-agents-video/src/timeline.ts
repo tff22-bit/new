@@ -4,9 +4,11 @@ import narration from "./data/narration.json";
 import timing from "./data/timing.json";
 import { FPS } from "./theme";
 
-export const LEAD = 24; // إطارات قبل بداية التعليق في المشهد
-export const TAIL = 30; // إطارات بعد نهاية التعليق
-export const OVERLAP = 18; // تداخل الانتقال بين مشهدين
+// إيقاع المشاهد معرّف في narration.json (meta.pacing) ليشترك فيه الكود والسكربتات
+const pacing = (narration.meta as { pacing?: { lead: number; tail: number; overlap: number } }).pacing ?? { lead: 24, tail: 30, overlap: 18 };
+export const LEAD = pacing.lead; // إطارات قبل بداية التعليق في المشهد
+export const TAIL = pacing.tail; // إطارات بعد نهاية التعليق
+export const OVERLAP = pacing.overlap; // تداخل الانتقال بين مشهدين
 
 export type Mark = { t: number; c: number };
 export type BeatT = {

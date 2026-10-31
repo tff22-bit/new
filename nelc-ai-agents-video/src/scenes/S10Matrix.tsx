@@ -120,7 +120,7 @@ export const S10Matrix: React.FC = () => {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 22 }}>
               {DETAIL.map((d, k) => (
                 <Reveal key={k} at={c(5, d.cue)} kind="up" style={{ position: "relative" }}>
-                  <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#F6FAFB", borderRadius: 16, padding: "14px 18px" }}>
+                  <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#F8F5FE", borderRadius: 16, padding: "14px 18px" }}>
                     <Icon name={d.icon} size={40} color={C.teal} />
                     <Text size={25} weight={600}>{d.label}</Text>
                   </div>

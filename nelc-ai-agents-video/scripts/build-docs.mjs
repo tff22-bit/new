@@ -5,7 +5,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const narr = JSON.parse(readFileSync(path.join(root, "src/data/narration.json"), "utf8"));
 const timing = JSON.parse(readFileSync(path.join(root, "src/data/timing.json"), "utf8"));
 const vis = JSON.parse(readFileSync(path.join(root, "scripts/storyboard-visuals.json"), "utf8"));
-const OVERLAP = 18, FPS = 30;
+const OVERLAP = timing.overlap, FPS = 30;
 
 const sceneDur = (s) => timing.scenes.find((x) => x.id === s.id).durFrames / FPS;
 const est = timing.estimatedBeats > 0;

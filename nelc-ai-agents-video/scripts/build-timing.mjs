@@ -11,7 +11,11 @@ const narration = JSON.parse(readFileSync(path.join(root, "src/data/narration.js
 const WORDS_PER_SEC = 2.0; // سرعة تقديرية لسرد عربي معتدل
 const EST_GAP = 0.4; // وقفة تقديرية بين المقاطع (ثوانٍ)
 const SEP = " "; // يطابق فاصل المقاطع في scripts/tts_edge.py
-export const FPS = 30, LEAD = 24, TAIL = 30, OVERLAP = 18;
+const P = narration.meta.pacing ?? { lead: 24, tail: 30, overlap: 18 };
+export const FPS = 30, LEAD = P.lead, TAIL = P.tail, OVERLAP = P.overlap;
+// التشكيل يُستعمل لضبط النطق فقط؛ مواضع الحروف تُحوَّل إلى النص المجرد منه
+const DIAC = /[\u064B-\u0652\u0670\u0640]/g;
+const plainLen = (str) => str.replace(DIAC, "").length;
 
 const probe = (file) =>
   parseFloat(
@@ -43,7 +47,7 @@ const scenes = narration.scenes.map((s) => {
       const end = starts[i] + b.text.length;
       const marks = words
         .filter((x) => x.c >= starts[i] && x.c < end)
-        .map((x) => ({ t: +(x.t - offset).toFixed(3), c: x.c - starts[i] }));
+        .map((x) => ({ t: +(x.t - offset).toFixed(3), c: plainLen(b.text.slice(0, x.c - starts[i])) }));
       return { id: b.id, offset: +offset.toFixed(3), seconds: +(next - offset).toFixed(3), estimated: false, marks };
     });
     return { id: s.id, file: rel, seconds: total, durFrames: LEAD + Math.ceil(total * FPS) + TAIL, beats };
@@ -60,9 +64,11 @@ const scenes = narration.scenes.map((s) => {
   return { id: s.id, file: null, seconds: t, durFrames: LEAD + Math.ceil(t * FPS) + TAIL, beats };
 });
 
+// إمساك إضافي في نهاية المشهد الأخير ليستقر الختام على الشاشة
+if (P.endHold) scenes[scenes.length - 1].durFrames += P.endHold;
 const total = scenes.reduce((a, s) => a + s.durFrames, 0) - OVERLAP * (scenes.length - 1);
 writeFileSync(
   path.join(root, "src/data/timing.json"),
-  JSON.stringify({ generatedAt: new Date().toISOString(), estimatedBeats: estimated, totalFrames: total, scenes }, null, 2),
+  JSON.stringify({ generatedAt: new Date().toISOString(), estimatedBeats: estimated, totalFrames: total, overlap: OVERLAP, scenes }, null, 2),
 );
 console.log(`timing.json: ${scenes.length} scenes, video ${(total / FPS).toFixed(1)}s, estimated beats: ${estimated}`);

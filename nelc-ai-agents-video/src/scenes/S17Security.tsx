@@ -161,7 +161,7 @@ const OutputSandbox: React.FC = () => {
         <Conn d="M 1430 425 L 1120 425" at={at + 10} dur={16} color={C.alert} dashed width={3} arrow={{ x: 1120, y: 425, angle: 180 }} />
         <Conn d="M 920 425 L 620 425" at={c(3, "تُفحص") + 10} dur={16} color={C.ok} arrow={{ x: 620, y: 425, angle: 180 }} />
         {f > at + 30 && <FlowDot point={{ x: lerp(1430, 620, t), y: 425 }} color={lerp(1430, 620, t) > 1020 ? C.alert : C.ok} r={8} />}
-        <rect x={380} y={620} width={1150} height={260} rx={30} fill="rgba(13,92,104,0.04)" stroke={C.teal} strokeWidth={3} strokeDasharray="14 10" opacity={prog(f, sb, 20)} />
+        <rect x={380} y={620} width={1150} height={260} rx={30} fill="rgba(59,30,122,0.04)" stroke={C.teal} strokeWidth={3} strokeDasharray="14 10" opacity={prog(f, sb, 20)} />
       </Svg>
       <Reveal at={at + 14} kind="fade" style={{ left: 1120, top: 350, width: 320, textAlign: "center" }}>
         <Text size={22} weight={600} color={C.alert}>تُعامَل كمدخلات غير موثوقة</Text>

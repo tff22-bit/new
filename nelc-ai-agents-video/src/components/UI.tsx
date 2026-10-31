@@ -42,7 +42,7 @@ export const Card: React.FC<{
   highlight?: number; // 0..1 إبراز
   tone?: "white" | "soft" | "cyan" | "alert" | "ok";
 }> = ({ style, children, accent, highlight = 0, tone = "white" }) => {
-  const bg = { white: C.surface, soft: "#F6FAFB", cyan: "#EEFAFB", alert: C.alertLight, ok: C.okLight }[tone];
+  const bg = { white: C.surface, soft: "#F8F5FE", cyan: "#F3EEFF", alert: C.alertLight, ok: C.okLight }[tone];
   const ring = accent ?? C.turquoise;
   return (
     <div
@@ -134,7 +134,7 @@ export const AgentCore: React.FC<{ size?: number; label?: string; active?: boole
       <svg width={size} height={size} viewBox="0 0 100 100" style={{ position: "absolute", inset: 0, overflow: "visible" }}>
         <defs>
           <radialGradient id={halted ? "coreg-h" : "coreg-a"} cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stopColor="#E9FCFD" />
+            <stop offset="0%" stopColor="#F5F0FF" />
             <stop offset="100%" stopColor={core} />
           </radialGradient>
         </defs>
