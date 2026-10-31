@@ -5,12 +5,9 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const narr = JSON.parse(readFileSync(path.join(root, "src/data/narration.json"), "utf8"));
 const timing = JSON.parse(readFileSync(path.join(root, "src/data/timing.json"), "utf8"));
 const vis = JSON.parse(readFileSync(path.join(root, "scripts/storyboard-visuals.json"), "utf8"));
-const LEAD = 24, GAP = 12, TAIL = 30, OVERLAP = 18, FPS = 30;
+const OVERLAP = 18, FPS = 30;
 
-const sceneDur = (s) => {
-  const t = timing.scenes.find((x) => x.id === s.id);
-  return (LEAD + TAIL + GAP * (s.beats.length - 1) + t.beats.reduce((a, b) => a + Math.ceil(b.seconds * FPS), 0)) / FPS;
-};
+const sceneDur = (s) => timing.scenes.find((x) => x.id === s.id).durFrames / FPS;
 const est = timing.estimatedBeats > 0;
 const fmt = (sec) => `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, "0")}`;
 const total = narr.scenes.reduce((a, s) => a + sceneDur(s), 0) - (OVERLAP / FPS) * (narr.scenes.length - 1);

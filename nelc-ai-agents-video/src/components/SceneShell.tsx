@@ -3,6 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from "remo
 import { useScene } from "../SceneContext";
 import { C, FONT } from "../theme";
 import { easeOut, prog } from "./anim";
+import { LEAD } from "../timeline";
 
 // يختصر أرقام الصفحات المتتالية إلى نطاقات: 37–45
 const pageRanges = (pages: number[]) => {
@@ -98,12 +99,10 @@ export const SceneShell: React.FC<{
       <div style={{ position: "absolute", left: 72, bottom: 34, fontSize: 19, color: C.faint, fontWeight: 500, opacity: prog(f, 20, 20) }}>
         المصدر: الوثيقة، ص {pageRanges(scene.pages)}
       </div>
-      {scene.beats.map((b) =>
-        b.file ? (
-          <Sequence key={b.id} from={b.start} durationInFrames={b.dur + 6} layout="none">
-            <Audio src={staticFile(b.file)} />
-          </Sequence>
-        ) : null,
+      {scene.audio && (
+        <Sequence from={LEAD} layout="none">
+          <Audio src={staticFile(scene.audio)} />
+        </Sequence>
       )}
     </AbsoluteFill>
   );
