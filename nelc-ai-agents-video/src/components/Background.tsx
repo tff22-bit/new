@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { C } from "../theme";
 
 // خلفية هادئة مستمرة عبر الفيديو: تدرج خفيف وشبكة نقاط وبقع ضوء بطيئة الحركة
@@ -34,21 +34,9 @@ export const Background: React.FC = () => {
           opacity: 0.7,
         }}
       />
-      <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: 0.55 }}>
-        <defs>
-          <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse" patternTransform={`translate(${(t * 4) % 36} 0)`}>
-            <circle cx="2" cy="2" r="1.3" fill={C.lineStrong} />
-          </pattern>
-          <radialGradient id="fade" cx="50%" cy="50%" r="70%">
-            <stop offset="0%" stopColor="#fff" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#fff" stopOpacity="1" />
-          </radialGradient>
-          <mask id="dotmask">
-            <rect width="100%" height="100%" fill="url(#fade)" />
-          </mask>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" mask="url(#dotmask)" />
-      </svg>
+
+      {/* شبكة نقاط مُعدّة مسبقًا كصورة ثابتة (scripts/make-bg.cjs) لتخفيف كلفة التصيير */}
+      <Img src={staticFile("bg-dots.png")} style={{ position: "absolute", inset: 0, width: 1920, height: 1080 }} />
     </AbsoluteFill>
   );
 };
